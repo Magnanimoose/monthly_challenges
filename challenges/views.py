@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string #allows use of HTML docs by converting them to str
-
+from django.http import Http404
 # Create your views here.
 
 # def jan(request):
@@ -21,13 +21,14 @@ m_challenges = {
     "february": "Feb is the cat",
     "march": "Ye-yeah!",
     "april": "Yoyo!",
-    "June": None,
-    "July": None,
-    "August": None,
-    "September": None,
-    "October": None,
-    "November": None,
-    "December": None
+    "may": "Forgot about MAY!",
+    "june": None,
+    "july": None,
+    "august": None,
+    "september": None,
+    "october": None,
+    "november": None,
+    "december": None
 }
 
 
@@ -75,8 +76,12 @@ def monthpages(request, month): # second arg is the <placeholder> mentioned in u
             "month_name": month
         }) #shorthanded version of above 2 comments
     except:
-        return HttpResponseNotFound("<h1>Well dang</h1>")
-
+        # response_data = render_to_string("404.html") 
+        #return HttpResponseNotFound(response_data) # Obsolete command. Instead we raise the class 404 by importing http404
+        raise Http404() # automatically looks for 404.html in root template folder.
+                        # This is useful when deving since you get the bultin errors when urls dont work helping you troubleshoot
     
+# The objective of your views.py is to keep the functions as lean as possible and avoid any hardcoded html.
+#  Leave all html for the actual html documents
 
 

@@ -1,0 +1,18 @@
+<!--This page is a snippet of code for creating the Navbar that all pages will share-->
+
+<!-- Since this is a snippet included in index.html, it is cleaner to load it in that doc instead of this one-->
+
+<!--
+{% load static %}
+{% block CSS_files %}
+<link rel="stylesheet" href = "{% static "challenges/includes/header.css" %}">
+{% endblock %}
+-->
+
+<header>
+    <nav>
+        <a href="{% url "index" %}"> Blog </a>
+        <a href=""> Portfolio </a>
+        <a href=""> Contact Me </a>
+    </nav>
+</header>    

@@ -23,21 +23,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jduksix9k3(o27fw@xjl6gewvcclq@rlo+5hfbrw8=$vo%$dr$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # set to False when deploying to use custom 404 page
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] 
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'challenges',
+    'challenges', # When Django is searching for responses to requests, this makes it search arb subfolder challenges
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', # this line is required for Django to recognise static directory
 ]
 
 MIDDLEWARE = [
@@ -57,6 +57,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
            # BASE_DIR/ "challenges" / "templates" #BASE_DIR shorthanded ref to base directory
+           BASE_DIR / "templates" # This points Django to the templates folder in the root diretory (unrelated folder to above line)
+            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -120,7 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # This setting tells django which PATH inside APP folders to find the CSS styling. Problem is, this path does not search for a PATH to static in the root GLOBAL level
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static' # This line is manually added to search static on the global level automatically
+]
+                         
+                         
+                         
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

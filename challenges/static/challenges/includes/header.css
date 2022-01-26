@@ -1,0 +1,31 @@
+/* Despite this .css file being a different location to base.css, and challenges.css, 
+the calls from the doc are stil global */
+
+header {
+    width: 100%;
+    height: 5rem;
+    background-color: white;
+
+}
+
+header nav {
+    width: 100%;
+    height: 100%;
+    display: flex; /*flexbox*/
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+header nav a { /* 'header nav a' targets the anchor tags aka text*/
+    color: rgb(50, 50, 170);
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: 40px; /* adds spacing between header elements*/
+}
+
+header nav a:hover, /* here is the change when mouse is hovering over anchor*/
+header nav a:active {
+    color: yellowgreen;
+}

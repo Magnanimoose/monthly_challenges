@@ -1,0 +1,1 @@
+"Includes" fold is for calling HTML snippets such as nav bar, when snippets are required rather than templates

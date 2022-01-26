@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to {{ month_name|title }} Homepage</h1>
+{% extends 'base.html' %}
+{% load static %}
+<!-- This page loads the individual month webpages-->
+
+    {% block CSS_files %}
+    <link href="{% static "challenges/includes/header.css" %}" rel="stylesheet"> 
+    {% endblock %}
+    
+    {% block page_title %}
+    Welcome to homepage 
+    {% endblock %}
+
+    {% block content %}
+    {% include "challenges/includes/header.html"  %}
+    <h1>Welcome to {{ month_name|title }} Page</h1>
     {% if text is not None %}
     <h2>{{ text|title }}</h2>             <!--This is Django code that inputs Django vars.-->
     {% else %}
     <p> I have nothing to say </p>
     {% endif %}
-</body>
-</html>
+    {% endblock %}

@@ -1,0 +1,25 @@
+{% load static %} <!-- Space on-top to load general plugins, in this case CSS-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block page_title %}Fallback title{% endblock %}
+    </title>
+
+    <!-- CSS styling is always placed in the <head> section of HTML-->
+    <link rel="stylesheet" href="{% static "base.css" %}"> <!-- this line is applied globally by default-->
+
+    {% block CSS_files %} {% endblock %}
+
+</head>
+<body>
+    {% block content %} 
+    {% endblock %}
+</body>
+</html>
+
+<!--This is a html template for Document inheritance-->

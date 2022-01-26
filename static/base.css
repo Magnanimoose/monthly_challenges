@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;700&display=swap');
+
+html { /*this line was copied and pasted from Google Fonts*/
+    font-family: 'Spline Sans', sans-serif;
+    
+}
+
+body { /* removes default margin set by browsers  */
+    margin: 0;
+    background-color: rgb(93, 104, 168) ;
+}
+
+h2, h1 {
+    color: whitesmoke;
+    text-align: center;
+}

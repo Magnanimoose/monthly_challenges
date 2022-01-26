@@ -1,0 +1,2 @@
+21/1/22: Browser refused connection. Try cleaning the cache 
+then restarting the computer and wifi (has to be 30 seconds)

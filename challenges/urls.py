@@ -4,7 +4,7 @@ from django.urls import reverse
 
 """This is the URL config the order the paths are listed is important"""
 urlpatterns = [
-    path("", views.index),
+    path("", views.index, name="index"),
     path("<int:month>", views.monthpages_by_number),
     path("<str:month>", views.monthpages, name="month-challenge") # this is a dynamic path and segment, prevents long list of paths. Good for writing blogs
     

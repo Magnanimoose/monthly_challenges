@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home </title>
-</head>
-<body>
+{% extends "base.html" %} <!-- Extracts HTML from master temp-->
+<!-- index.html is the homepage of a website-->
+{% load static %} <!-- Calls CSS script into HTML doc-->
+
+    {% block CSS_files %}
+    <link href="{% static "challenges/challenges.css" %}" rel="stylesheet">
+    <link href="{% static "challenges/includes/header.css" %}" rel="stylesheet"> 
+    {% endblock %}
+
+    {% block page_title %}
+        Mainpage
+    {% endblock %}
+ <!-- Text above "Mainpage" puts name on browser tab-->
+
+    {% block content%}
+    {% include "challenges/includes/header.html"  %} <!--This is a snippet for navbar-->
+    <h1> Homepage </h1>
     <ul> <!-- The line below is a Django {% templatetag openblock %} to apply python code-->
         {% for month in month_list %}  
         <li>
@@ -15,5 +23,4 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+    {% endblock %}
